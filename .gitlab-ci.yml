@@ -1,0 +1,17 @@
+stages:
+  - build
+  - test
+
+build_job:
+  script:
+    - echo "building..."
+  tags:
+    - windows
+  stage: build
+
+start_job:
+#  image: gradle:8.5.0-jdk17-alpine
+#  script:
+#    - java ./src/main/java/NewClass.java
+#    - gradle clean test
+  stage: test

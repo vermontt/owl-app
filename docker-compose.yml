@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  owl_db:
+    container_name: owl-all-db
+    image: postgres:16.2
+    ports:
+      - "3131:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: always
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES="owl-auth","owl-userdata","owl-library"
+      - PGUSER=postgres
+      - POSTGRES_PASSWORD=secret
+volumes:
+  db_data:
